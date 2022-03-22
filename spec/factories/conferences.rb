@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :conference do
-    name { 'Big 12' }
-    nickname { 'B12' }
-    abbreviation { 'B12' }
+    name { Faker::Company.name }
+    nickname { Faker::Alphanumeric.alpha(number: 3) }
+    abbreviation { Faker::Alphanumeric.alpha(number: 3) }
   end
 end

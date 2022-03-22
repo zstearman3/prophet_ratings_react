@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :position do
-    name { 'Guard' }
-    abbreviation { 'G' }
+    name { Faker::Sports::Basketball.position }
+    abbreviation { Faker::Alphanumeric.alpha(number: 2) }
   end
 end

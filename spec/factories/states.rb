@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :state do
-    name { 'Texas' }
-    abbreviation { 'TX' }
+    name { Faker::Address.state }
+    abbreviation { Faker::Address.state_abbr }
   end
 end

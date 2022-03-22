@@ -13,9 +13,12 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "devise", "~> 4.8.1"
+gem "redis", "~> 4.6.0"
+gem "resque", "~> 2.2.0", require: 'resque/server'
+gem "resque-scheduler", "~> 4.5.0"
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "rspec-rails"
+  gem "rspec-rails", "~> 5.1.1"
   gem "factory_bot_rails"
   gem "faker"
 end

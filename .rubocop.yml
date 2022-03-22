@@ -1,0 +1,8 @@
+AllCops:
+  Exclude:
+    - db/migrate/20220321205815_devise_create_users.rb
+    - config/initializers/devise.rb
+    - config/environments/development.rb
+    - config/application.rb
+    - app/helpers/application_helper.rb
+    - lib/tasks/resque.rb

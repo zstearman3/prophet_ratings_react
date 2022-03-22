@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_22_140041) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_22_150356) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_22_140041) do
     t.string "abbreviation"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "school", null: false
+    t.string "nickname", null: false
+    t.string "abbreviation", null: false
+    t.string "primary_color"
+    t.string "secondary_color"
+    t.string "city"
+    t.bigint "state_id"
+    t.bigint "conference_id"
+    t.string "espn_url"
+    t.string "logo_url"
+    t.integer "espn_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["abbreviation"], name: "index_teams_on_abbreviation", unique: true
+    t.index ["conference_id"], name: "index_teams_on_conference_id"
+    t.index ["school"], name: "index_teams_on_school", unique: true
+    t.index ["state_id"], name: "index_teams_on_state_id"
   end
 
   create_table "users", force: :cascade do |t|

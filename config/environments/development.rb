@@ -73,6 +73,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.generators do |g|
-    g.factory_bot dir: 'spec/factories'
+    g.test_framework :rspec
+    g.fixture_replacement :factory_bot, dir: 'spec/factories'
   end
 end

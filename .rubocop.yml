@@ -1,6 +1,7 @@
 AllCops:
+  NewCops: enable
   Exclude:
-    - db/migrate/20220321205815_devise_create_users.rb
+    - db/migrate/*
     - config/initializers/devise.rb
     - config/environments/development.rb
     - config/application.rb

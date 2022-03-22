@@ -26,7 +26,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'awesome_print', '~> 1.9.2'
   gem 'brakeman', '~> 5.1.2'
+  gem 'pry', '~> 0.14.1'
+  gem 'pry-rails'
   gem 'rubocop'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'

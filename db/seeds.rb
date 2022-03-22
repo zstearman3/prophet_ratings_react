@@ -16,14 +16,14 @@ positions = [
 ]
 
 class_designations.each do |cd|
-  designation = ClassDesignation.find_or_create_by(abbreviation: cd[1])
+  designation = ClassDesignation.find_or_initialize_by(abbreviation: cd[1])
   designation.name = cd[0]
   designation.save
 end
 puts "There are #{ClassDesignation.count} class designations in the database."
 
 positions.each do |position|
-  new_position = Position.find_or_create_by(abbreviation: position[1])
+  new_position = Position.find_or_initialize_by(abbreviation: position[1])
   new_position.name = position[0]
   new_position.save
 end

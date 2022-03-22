@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_22_150356) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_22_165635) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "class_designations", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "abbreviation", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["abbreviation"], name: "index_class_designations_on_abbreviation", unique: true
+    t.index ["name"], name: "index_class_designations_on_name", unique: true
+  end
 
   create_table "conferences", force: :cascade do |t|
     t.string "name", null: false
@@ -24,6 +33,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_22_150356) do
     t.index ["abbreviation"], name: "index_conferences_on_abbreviation", unique: true
     t.index ["name"], name: "index_conferences_on_name", unique: true
     t.index ["nickname"], name: "index_conferences_on_nickname", unique: true
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "abbreviation", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["abbreviation"], name: "index_positions_on_abbreviation", unique: true
+    t.index ["name"], name: "index_positions_on_name", unique: true
   end
 
   create_table "states", force: :cascade do |t|

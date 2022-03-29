@@ -8,7 +8,7 @@ RSpec.describe Player, type: :model do
     expect(player.formatted_height).to eq "6' 6"
   end
 
-  it'requires a record to have a last_name' do
+  it 'requires a record to have a last_name' do
     invalid_player = build(:player, last_name: nil)
     expect(invalid_player).to_not be_valid
   end

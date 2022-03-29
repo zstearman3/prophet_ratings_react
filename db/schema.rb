@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_23_140853) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_29_014647) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_23_140853) do
     t.index ["abbreviation"], name: "index_conferences_on_abbreviation", unique: true
     t.index ["name"], name: "index_conferences_on_name", unique: true
     t.index ["nickname"], name: "index_conferences_on_nickname", unique: true
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.boolean "active", default: true
+    t.integer "jersey_number"
+    t.integer "height"
+    t.integer "weight"
+    t.string "birthplace"
+    t.bigint "team_id", null: false
+    t.bigint "class_designation_id"
+    t.integer "espn_id"
+    t.string "espn_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["class_designation_id"], name: "index_players_on_class_designation_id"
+    t.index ["team_id"], name: "index_players_on_team_id"
   end
 
   create_table "positions", force: :cascade do |t|
